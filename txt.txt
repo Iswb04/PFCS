@@ -4,7 +4,22 @@ cd financeiro
 python manage.py startapp core
 
 
+
+python manage.py makemigrations core -> cria instruções
+python manage.py migrate -> cria banco e tabelas
+
+
 Link de Acesso:
 python manage.py runserver
 http://127.0.0.1:8000/
 
+
+
+financeiro fora -> 
+    pasta do projeto manage, banco de dados e comandos (raiz)
+financeiro dentro -> 
+    modulo do django: settings, urls e execução
+core -> meu app
+
+
+pip install pyinstaller

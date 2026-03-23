@@ -6,7 +6,7 @@
     <h1>💰 Finanças</h1>
 
     <div class="saldo">
-        Saldo: R$ {{ saldo }}
+        Saldo: R$ {{ saldo|floatformat:2}}
     </div>
 
     <a href="/add/">+ Nova Transação</a>
@@ -15,10 +15,21 @@
 </a>
 
     <ul>
-        {% for t in transacoes %}
-            <li class="{% if t.tipo == 'R' %}receita{% else %}despesa{% endif %}">
-                {{ t.titulo }} - R$ {{ t.valor }}
-            </li>
-        {% endfor %}
-    </ul>
+ {% for t in transacoes %}
+        <li class="{% if t.tipo == 'R' %}receita{% else %}despesa{% endif %}">
+            
+            <span>{{ t.titulo }} - R$ {{ t.valor }}</span>
+
+            <form method="post" action="{% url 'deletar' t.id %}">
+                {% csrf_token %}
+                <button class="btn-delete">X</button>
+            </form>
+
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="/exportar/" style="background: rgb(14, 68, 1);">Exportar</a>
+
+    
 </div>

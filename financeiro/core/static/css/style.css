@@ -28,7 +28,25 @@ h1 {
     margin-bottom: 20px;
 }
 
-a, button {
+
+a {
+    display: block;
+    width: 95%;
+    background: #0984e3;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    background: #0652dd;
+}
+
+
+button {
     display: block;
     width: 100%;
     background: #0984e3;
@@ -37,11 +55,10 @@ a, button {
     margin-top: 10px;
     border: none;
     border-radius: 8px;
-    text-decoration: none;
     cursor: pointer;
 }
 
-a:hover, button:hover {
+button:hover {
     background: #0652dd;
 }
 
@@ -49,14 +66,11 @@ ul {
     list-style: none;
     padding: 0;
     margin-top: 20px;
+
+    max-height: 200px;   /* sobe não :c */
+    overflow-y: auto
 }
 
-li {
-    background: white;
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-}
 
 .receita {
     border-left: 5px solid green;
@@ -66,10 +80,49 @@ li {
     border-left: 5px solid red;
 }
 
+
 input, select {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
+}
+
+
+li {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+li form {
+    margin: 0;
+}
+
+.btn-delete {
+
+    all: unset;
+    display: flex;              
+    justify-content: center;   
+    align-items: center;      
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 1px solid red;
+    background: transparent;
+    color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    background: red;
+    color: white;
 }
