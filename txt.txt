@@ -22,4 +22,16 @@ financeiro dentro ->
 core -> meu app
 
 
-pip install pyinstaller
+create EXE -> 
+    pip install pyinstaller
+    pyinstaller --onefile --noconsole run.py
+
+
+
+<
+botao para visualizar se foi pago (visual)
+saldo total no exportar
+exe abrindo o link
+data ao lado do nome da despesa/receita
+>
+
