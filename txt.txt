@@ -33,5 +33,6 @@ botao para visualizar se foi pago (visual)
 saldo total no exportar
 exe abrindo o link
 data ao lado do nome da despesa/receita
+remover o tex do github
 >
 
