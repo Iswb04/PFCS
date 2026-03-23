@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+<div class="container">
+    <h1>💰 Finanças</h1>
+
+    <div class="saldo">
+        Saldo: R$ {{ saldo }}
+    </div>
+
+    <a href="/add/">+ Nova Transação</a>
+    <a href="/zerar/" onclick="return confirm('Tem certeza?')" style="background: red;">
+    Zerar Tudo
+</a>
+
+    <ul>
+        {% for t in transacoes %}
+            <li class="{% if t.tipo == 'R' %}receita{% else %}despesa{% endif %}">
+                {{ t.titulo }} - R$ {{ t.valor }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
