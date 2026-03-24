@@ -30,9 +30,9 @@ create EXE ->
 
 <
 botao para visualizar se foi pago (visual)
-saldo total no exportar
+saldo total no exportar XXXX
 exe abrindo o link
-data ao lado do nome da despesa/receita
+data ao lado do nome da despesa/receita  XXX
 remover o tex do github
 >
 

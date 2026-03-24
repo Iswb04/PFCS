@@ -22,7 +22,7 @@ def home(request):
 
 def adicionar(request):
     if request.method == 'POST':
-        titulo = request.POST['titulo']
+        titulo = request.POST['titulo'] + " " + "[" + datetime.now().strftime('%d-%m')+"]"
         valor = float(request.POST['valor'])
         tipo = request.POST['tipo']
 
@@ -53,6 +53,19 @@ def deletar(request, id):
 def exportar(request):
     dados = Transacao.objects.values("titulo", "valor","tipo")
     df = pd.DataFrame(list(dados))
+
+    if df.empty:
+        df = pd.DataFrame(columns=["titulo", "valor", "tipo"])
+
+
+    saldo = 0
+    for t in Transacao.objects.all():
+        if t.tipo == 'R':
+            saldo += t.valor
+        else:
+            saldo -= t.valor
+
+    df.loc[len(df)] = ['Saldo Total', saldo, '']
 
     hoje = datetime.now().strftime('%Y-%m-%d')
     nome =f"TRANSACOES_{hoje}.xlsx"
