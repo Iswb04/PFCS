@@ -37,3 +37,14 @@ python manage.py migrate -> cria banco e tabelas
 >> --add-data "core/templates;core/templates" `
 >> --add-data "core/static/css;core/static/css" `   -> n criando o staticfiles
 >> run.py
+
+
+
+
+
+git !!!!!!!!!!
+
+
+git add . 
+git commit -m "nome"
+git push
