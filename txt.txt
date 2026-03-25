@@ -33,6 +33,7 @@ python manage.py migrate -> cria banco e tabelas
 
 
 -> criar exe !!!!!!!
- pyinstaller --onefile `>> --add-data "core/templates;core/templates" `
->> --add-data "staticfiles;staticfiles" `
->> run.py 
+ pyinstaller --onedir `
+>> --add-data "core/templates;core/templates" `
+>> --add-data "core/static/css;core/static/css" `   -> n criando o staticfiles
+>> run.py
