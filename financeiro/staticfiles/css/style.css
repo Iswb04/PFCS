@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #e3f2fd;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.saldo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+a {
+    display: block;
+    width: 95%;
+    background: #0984e3;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    background: #0652dd;
+}
+
+
+button {
+    display: block;
+    width: 100%;
+    background: #0984e3;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0652dd;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+
+    max-height: 200px;   /* sobe não :c */
+    overflow-y: auto
+}
+
+
+.receita {
+    border-left: 5px solid green;
+}
+
+.despesa {
+    border-left: 5px solid red;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+li {
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+li form {
+    margin: 0;
+}
+
+.btn-delete {
+
+    all: unset;
+    display: flex;              
+    justify-content: center;   
+    align-items: center;      
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 1px solid red;
+    background: transparent;
+    color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    background: red;
+    color: white;
+}
