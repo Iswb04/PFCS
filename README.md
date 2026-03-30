@@ -1,6 +1,6 @@
 Personal Financial Control System
 
-About (ENG)
+* About (ENG)
 - This project is a personal financial control system for managing and tracking transactions. It was developed to practice building a complete application, integrating backend, database, and data manipulation.
 
 Features
@@ -20,7 +20,7 @@ This project helped reinforce concepts such as backend development, database int
 
 The application can also be executed through a generated .exe file using PyInstaller, without requiring a Python environment.
 
-Sobre (PT-BR)
+* Sobre (PT-BR)
 - Este projeto é um sistema de controle financeiro pessoal para registro e gerenciamento de transações. Foi desenvolvido com o objetivo de praticar a construção de uma aplicação completa, integrando backend, banco de dados e manipulação de dados.
 
 Funcionalidades
