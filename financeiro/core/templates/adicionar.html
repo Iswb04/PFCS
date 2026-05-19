@@ -1,21 +1,125 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Personal Finance Control System</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<div class="container">
-    <h1>❖ NOVA TRANSAÇÃO</h1>
- 
-    <form method="post">
-        {% csrf_token %}
-        
-        <input type="text" name="titulo" placeholder="Título" required>
-        <input type="number" step="any" name="valor" placeholder="Valor" min="0" required>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { bg: '#0B0F1A', card: '#161C2B', border: '#1F2937' },
+                        brand: { green: '#22C55E', red: '#EF4444', blue: '#3B82F6' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
 
-        <select name="tipo">
-            <option value="R">Receita</option>
-            <option value="D">Despesa</option>
-        </select>
+    <style>
+        body { 
+            background-color: #0B0F1A; 
+            color: #FFFFFF; 
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card { background: #161C2B; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .animate-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="dark flex flex-col md:items-center md:justify-center min-h-screen">
+    
+    <!-- Header Mobile simplificado -->
+    <div class="md:hidden flex justify-between items-center p-6 border-b border-dark-border">
+        <h2 class="text-xl font-bold tracking-tight">Novo Lançamento</h2>
+        <a href="/" class="p-2 text-gray-400 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </a>
+    </div>
 
-        <button type="submit">Salvar</button>
-        <button type="button" onclick="history.back()">Voltar</button>
-    </form>
-</div>
+    <div class="flex-1 md:flex-initial w-full max-w-md animate-in">
+        <div class="glass-card md:rounded-[2.5rem] rounded-none border-0 md:border border-dark-border overflow-hidden md:mt-0">
+            <div class="hidden md:flex px-8 py-8 justify-between items-center border-b border-dark-border">
+                <h2 class="text-2xl font-black tracking-tight">Nova Transação</h2>
+                <a href="/" class="p-2 text-gray-400 hover:text-white transition-all">
+                    <i data-lucide="x" class="w-7 h-7"></i>
+                </a>
+            </div>
+            
+            <form method="post" class="p-8 space-y-8">
+                {% csrf_token %}
+                
+                <div class="space-y-3">
+                    <label class="text-xs font-black text-gray-500 uppercase tracking-[0.2em]">Descrição</label>
+                    <input 
+                        type="text" 
+                        name="titulo" 
+                        required
+                        autofocus
+                        class="w-full bg-dark-bg border-2 border-dark-border rounded-2xl py-4 px-5 focus:outline-none focus:border-brand-blue text-lg font-semibold transition-all placeholder:text-gray-700"
+                        placeholder="Ex: Mercado, Uber..."
+                        style="background-color: #0B0F1A;"
+                    >
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-3">
+                        <label class="text-xs font-black text-gray-500 uppercase tracking-[0.2em]">Valor (R$)</label>
+                        <input 
+                            type="number" 
+                            step="any"
+                            name="valor"
+                            required
+                            class="w-full bg-dark-bg border-2 border-dark-border rounded-2xl py-4 px-5 focus:outline-none focus:border-brand-blue text-lg font-black transition-all placeholder:text-gray-700"
+                            placeholder="0,00"
+                            style="background-color: #0B0F1A;"
+                        >
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-xs font-black text-gray-500 uppercase tracking-[0.2em]">Tipo</label>
+                        <div class="relative">
+                            <select 
+                                name="tipo"
+                                class="w-full appearance-none bg-dark-bg border-2 border-dark-border rounded-2xl py-4 px-5 pr-12 focus:outline-none focus:border-brand-blue text-lg font-bold transition-all"
+                                style="background-color: #0B0F1A;"
+                            >
+                                <option value="D">💸 Saída / Despesa</option>
+                                <option value="R">💰 Entrada / Receita</option>
+                            </select>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 space-y-4">
+                    <button type="submit" class="w-full bg-brand-green hover:bg-green-600 text-white font-black py-5 rounded-2xl shadow-2xl shadow-brand-green/20 transition-all hover:scale-[1.02] active:scale-95 text-lg">
+                        Confirmar Lançamento
+                    </button>
+                    <a href="/" class="block text-center text-gray-500 font-bold text-sm hover:text-white transition-colors py-2">
+                        Descartar e voltar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

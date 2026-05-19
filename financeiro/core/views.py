@@ -5,18 +5,24 @@ from django.http import HttpResponse
 from datetime import datetime
 
 def home(request):
-    transacoes = Transacao.objects.all()
+    transacoes = Transacao.objects.all().order_by('-id')
 
     saldo = 0
+    receitas = 0
+    despesas = 0
     for t in transacoes:
         if t.tipo == 'R':
             saldo += t.valor
+            receitas += t.valor
         else:
             saldo -= t.valor
+            despesas += t.valor
 
     return render(request, 'home.html', {
         'transacoes': transacoes,
-        'saldo': saldo
+        'saldo': saldo,
+        'receitas': receitas,
+        'despesas': despesas
     })
 
 
@@ -78,4 +84,3 @@ def exportar(request):
     df.to_excel(response, index=False)
 
     return response
-

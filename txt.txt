@@ -8,6 +8,11 @@ Link de Acesso:
 python manage.py runserver
 http://127.0.0.1:8000/
 
+------------------------------------
+python -m http.server 8001
+Abra o navegador e acesse: http://localhost:8001
+------------------------------------
+
 
 financeiro fora -> !!!!!!!!!!
     pasta do projeto manage, banco de dados e comandos (raiz)

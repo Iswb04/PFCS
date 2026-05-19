@@ -1,38 +1,211 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<title>Personal Financial Control System</title>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Personal Finance Control System</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<div class="container">
-    <h1>❖ FINANÇAS</h1>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0B0F1A',
+                            card: '#161C2B',
+                            border: '#1F2937'
+                        },
+                        brand: {
+                            green: '#22C55E',
+                            red: '#EF4444',
+                            blue: '#3B82F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 
-    <div class="saldo">
-        Saldo: R$ {{ saldo|floatformat:2}}
+    <style>
+        body { 
+            background-color: #0B0F1A; 
+            color: #FFFFFF; 
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #1F2937; border-radius: 10px; }
+        .glass-card { background: #161C2B; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .animate-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Ajuste fino para o scroll lateral no mobile */
+        .snap-x {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .snap-start {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="dark overflow-x-hidden">
+    <div class="min-h-screen pb-32 md:pb-12">
+        <!-- Header Desktop -->
+        <nav class="hidden md:flex justify-between items-center px-8 py-8 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-brand-blue rounded-2xl flex items-center justify-center shadow-lg shadow-brand-blue/20">
+                    <i data-lucide="wallet" class="text-white w-7 h-7"></i>
+                </div>
+                <h1 class="text-2xl font-extrabold tracking-tight">PFCS</h1>
+            </div>
+            <div class="flex gap-4">
+                <a href="/exportar/" class="flex items-center gap-2 bg-dark-card hover:bg-dark-border px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all border border-dark-border">
+                    <i data-lucide="download" class="w-4 h-4"></i> Exportar
+                </a>
+                <a href="/zerar/" onclick="return confirm('Zerar tudo?')" class="flex items-center gap-2 text-brand-red hover:bg-brand-red hover:bg-opacity-10 px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all border border-brand-red border-opacity-20">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i> Zerar Tudo
+                </a>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 md:px-8 mt-6">
+            <!-- Saldo Principal -->
+            <div class="mb-12 text-center md:text-left">
+                <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Saldo Total</span>
+                <div class="text-5xl md:text-6xl font-black mt-2 tracking-tight" id="main-balance">
+                    R$ {{ saldo|floatformat:2 }}
+                </div>
+            </div>
+
+            <!-- Grid de Resumo / Scroll lateral no Mobile -->
+            <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-5 mb-14 no-scrollbar pb-2 snap-x">
+                <div class="glass-card p-7 rounded-[2rem] shadow-xl flex flex-col justify-between min-w-[85vw] md:min-w-0 flex-1 snap-start">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-gray-400 text-sm font-bold uppercase tracking-wider">Ganhos</span>
+                        <div class="p-3 rounded-2xl bg-brand-green bg-opacity-10 text-brand-green">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-black text-brand-green">R$ {{ receitas|floatformat:2 }}</div>
+                </div>
+
+                <div class="glass-card p-7 rounded-[2rem] shadow-xl flex flex-col justify-between min-w-[85vw] md:min-w-0 flex-1 snap-start">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-gray-400 text-sm font-bold uppercase tracking-wider">Gastos</span>
+                        <div class="p-3 rounded-2xl bg-brand-red bg-opacity-10 text-brand-red">
+                            <i data-lucide="trending-down" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-black text-brand-red">R$ {{ despesas|floatformat:2 }}</div>
+                </div>
+
+                <div class="glass-card p-7 rounded-[2rem] shadow-xl flex flex-col justify-between min-w-[85vw] md:min-w-0 flex-1 snap-start">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-gray-400 text-sm font-bold uppercase tracking-wider">Disponível</span>
+                        <div class="p-3 rounded-2xl bg-brand-blue bg-opacity-10 text-brand-blue">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-black">R$ {{ saldo|floatformat:2 }}</div>
+                </div>
+            </div>
+
+            <!-- Lista de Transações -->
+            <div class="space-y-6">
+                <div class="flex justify-between items-center px-2 mb-6">
+                    <h3 class="text-xl font-bold tracking-tight">Histórico</h3>
+                    <div class="relative group">
+                         <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-brand-blue transition-colors">
+                             <i data-lucide="search" class="w-4 h-4"></i>
+                         </div>
+                         <input type="text" id="search-input" placeholder="Buscar..." class="bg-dark-card border border-dark-border rounded-2xl pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-brand-blue transition-all w-40 md:w-64">
+                    </div>
+                </div>
+                
+                <div id="transactions-list" class="space-y-4">
+                    {% for t in transacoes %}
+                    <div class="glass-card p-5 rounded-[1.5rem] flex items-center justify-between animate-in group transaction-item" data-title="{{ t.titulo|lower }}">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-opacity-10 shadow-inner {% if t.tipo == 'R' %}bg-brand-green text-brand-green{% else %}bg-brand-red text-brand-red{% endif %}">
+                                <i data-lucide="{% if t.tipo == 'R' %}banknote{% else %}shopping-bag{% endif %}" class="w-7 h-7"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-bold text-lg truncate tracking-tight">{{ t.titulo }}</div>
+                                <div class="text-xs font-medium text-gray-500 uppercase tracking-widest">{{ t.data|date:"d M Y" }}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5">
+                            <div class="font-black text-lg {% if t.tipo == 'R' %}text-brand-green{% else %}text-white{% endif %}">
+                                {% if t.tipo == 'R' %}+{% else %}-{% endif %} R$ {{ t.valor|floatformat:2 }}
+                            </div>
+                            <form method="post" action="{% url 'deletar' t.id %}" onsubmit="return confirm('Excluir?')">
+                                {% csrf_token %}
+                                <button type="submit" class="p-2.5 text-gray-600 hover:text-brand-red hover:bg-brand-red/10 rounded-xl transition-all">
+                                    <i data-lucide="trash-2" class="w-5 h-5"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-24 text-gray-600 border-2 border-dashed border-dark-border rounded-[2rem]">
+                        <i data-lucide="inbox" class="w-12 h-12 mx-auto mb-4 opacity-20"></i>
+                        <p class="font-medium">Nenhum lançamento registrado</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+
+        <!-- Botão Flutuante -->
+        <a href="/add/" class="fixed bottom-28 md:bottom-12 right-6 md:right-12 w-16 h-16 bg-brand-green rounded-2xl shadow-2xl shadow-brand-green/30 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 z-50">
+            <i data-lucide="plus" class="w-9 h-9"></i>
+        </a>
+
+        <!-- Nav Mobile -->
+        <div class="fixed md:hidden bottom-0 left-0 right-0 bg-dark-card/90 backdrop-blur-xl border-t border-dark-border flex justify-around items-center py-5 z-40 px-6 pb-8">
+            <a href="/" class="text-brand-blue flex flex-col items-center gap-2">
+                <i data-lucide="layout-dashboard" class="w-7 h-7"></i>
+                <span class="text-[10px] font-black uppercase tracking-widest">Início</span>
+            </a>
+            <a href="/exportar/" class="text-gray-500 flex flex-col items-center gap-2">
+                <i data-lucide="download" class="w-7 h-7"></i>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Relatório</span>
+            </a>
+            <a href="/zerar/" onclick="return confirm('Resetar sistema?')" class="text-gray-500 flex flex-col items-center gap-2">
+                <i data-lucide="refresh-cw" class="w-7 h-7"></i>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Reset</span>
+            </a>
+        </div>
     </div>
 
-    <a href="/add/">+ Nova Transação</a>
+    <script>
+        lucide.createIcons();
 
-
-    <ul>
- {% for t in transacoes %}
-        <li class="{% if t.tipo == 'R' %}receita{% else %}despesa{% endif %}">
-            
-            <span>{{ t.titulo }} - R$ {{ t.valor }}</span>
-
-            <form method="post" action="{% url 'deletar' t.id %}">
-                {% csrf_token %}
-                <button class="btn-delete">X</button>
-            </form>
-
-        </li>
-    {% endfor %}
-</ul>
-
-
-    <a href="/zerar/" onclick="return confirm('Tem certeza?')">
-    Zerar Tudo
-</a>
-<a href="/exportar/">Exportar</a>
-
-    
-</div>
+        // Busca instantânea simples
+        document.getElementById('search-input')?.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.transaction-item').forEach(item => {
+                const title = item.getAttribute('data-title');
+                item.style.display = title.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
