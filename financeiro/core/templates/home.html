@@ -141,7 +141,14 @@
                 
                 <div id="transactions-list" class="space-y-4">
                     {% for t in transacoes %}
-                    <div class="glass-card p-5 rounded-[1.5rem] flex items-center justify-between animate-in group transaction-item" data-title="{{ t.titulo|lower }}">
+                    <div class="glass-card p-5 rounded-[1.5rem] flex items-center justify-between animate-in group transaction-item cursor-pointer" 
+                         data-title="{{ t.titulo|lower }}"
+                         data-full-title="{{ t.titulo }}"
+                         data-value="{{ t.valor|floatformat:2 }}"
+                         data-type="{{ t.tipo }}"
+                         data-date="{{ t.data|date:'d M Y' }}"
+                         data-notes="{{ t.observacoes|default:'' }}"
+                         onclick="showTransactionDetails(this)">
                         <div class="flex items-center gap-5">
                             <div class="w-14 h-14 rounded-2xl flex items-center justify-center bg-opacity-10 shadow-inner {% if t.tipo == 'R' %}bg-brand-green text-brand-green{% else %}bg-brand-red text-brand-red{% endif %}">
                                 <i data-lucide="{% if t.tipo == 'R' %}banknote{% else %}shopping-bag{% endif %}" class="w-7 h-7"></i>
@@ -155,7 +162,7 @@
                             <div class="font-black text-lg {% if t.tipo == 'R' %}text-brand-green{% else %}text-white{% endif %}">
                                 {% if t.tipo == 'R' %}+{% else %}-{% endif %} R$ {{ t.valor|floatformat:2 }}
                             </div>
-                            <form method="post" action="{% url 'deletar' t.id %}" onsubmit="return confirm('Excluir?')">
+                            <form method="post" action="{% url 'deletar' t.id %}" onsubmit="event.stopPropagation(); return confirm('Excluir?')">
                                 {% csrf_token %}
                                 <button type="submit" class="p-2.5 text-gray-600 hover:text-brand-red hover:bg-brand-red/10 rounded-xl transition-all">
                                     <i data-lucide="trash-2" class="w-5 h-5"></i>
@@ -172,6 +179,42 @@
                 </div>
             </div>
         </main>
+
+        <!-- Modal de Detalhes -->
+        <div id="details-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+            <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
+            <div class="glass-card w-full max-w-md rounded-[2.5rem] relative z-10 animate-in overflow-hidden border-dark-border border">
+                <div class="p-8 space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div id="modal-icon" class="w-16 h-16 rounded-2xl flex items-center justify-center bg-opacity-10">
+                            <!-- Icon populated by JS -->
+                        </div>
+                        <button onclick="closeModal()" class="p-2 text-gray-500 hover:text-white transition-colors">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <h4 id="modal-title" class="text-2xl font-black tracking-tight truncate"></h4>
+                        <p id="modal-date" class="text-xs font-bold text-gray-500 uppercase tracking-widest"></p>
+                    </div>
+
+                    <div class="py-6 border-y border-dark-border">
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Valor</span>
+                        <div id="modal-value" class="text-4xl font-black mt-1"></div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Observações</span>
+                        <p id="modal-notes" class="text-gray-300 font-medium leading-relaxed"></p>
+                    </div>
+
+                    <button onclick="closeModal()" class="w-full bg-dark-border hover:bg-gray-700 text-white font-bold py-4 rounded-2xl transition-all">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- Botão Flutuante -->
         <a href="/add/" class="fixed bottom-28 md:bottom-12 right-6 md:right-12 w-16 h-16 bg-brand-green rounded-2xl shadow-2xl shadow-brand-green/30 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 z-50">
@@ -206,6 +249,40 @@
                 item.style.display = title.includes(term) ? 'flex' : 'none';
             });
         });
+
+        function showTransactionDetails(element) {
+            const title = element.getAttribute('data-full-title');
+            const value = element.getAttribute('data-value');
+            const type = element.getAttribute('data-type');
+            const date = element.getAttribute('data-date');
+            const notes = element.getAttribute('data-notes');
+
+            const modal = document.getElementById('details-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalValue = document.getElementById('modal-value');
+            const modalDate = document.getElementById('modal-date');
+            const modalNotes = document.getElementById('modal-notes');
+            const modalIcon = document.getElementById('modal-icon');
+
+            modalTitle.textContent = title;
+            modalDate.textContent = date;
+            modalValue.textContent = (type === 'R' ? '+ ' : '- ') + 'R$ ' + value;
+            modalValue.className = 'text-4xl font-black mt-1 ' + (type === 'R' ? 'text-brand-green' : 'text-white');
+            
+            modalNotes.textContent = notes || 'Nenhuma observação adicionada.';
+            
+            // Setup Icon
+            modalIcon.className = 'w-16 h-16 rounded-2xl flex items-center justify-center bg-opacity-10 ' + 
+                                (type === 'R' ? 'bg-brand-green text-brand-green' : 'bg-brand-red text-brand-red');
+            modalIcon.innerHTML = `<i data-lucide="${type === 'R' ? 'banknote' : 'shopping-bag'}" class="w-8 h-8"></i>`;
+            
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('details-modal').classList.add('hidden');
+        }
     </script>
 </body>
 </html>

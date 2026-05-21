@@ -31,11 +31,13 @@ def adicionar(request):
         titulo = request.POST['titulo']
         valor = float(request.POST['valor'])
         tipo = request.POST['tipo']
+        observacoes = request.POST.get('observacoes', '')
 
         Transacao.objects.create(
             titulo=titulo,
             valor=valor,
-            tipo=tipo
+            tipo=tipo,
+            observacoes=observacoes
         )
 
         return redirect('/')
@@ -57,11 +59,14 @@ def deletar(request, id):
 
 #pandas
 def exportar(request):
-    dados = Transacao.objects.values("titulo", "valor","tipo")
+    dados = Transacao.objects.values("data", "titulo", "valor", "tipo")
     df = pd.DataFrame(list(dados))
 
     if df.empty:
-        df = pd.DataFrame(columns=["titulo", "valor", "tipo"])
+        df = pd.DataFrame(columns=["data", "titulo", "valor", "tipo"])
+    else:
+        # Formata a data para string para o Excel
+        df['data'] = df['data'].apply(lambda x: x.strftime('%d/%m/%Y') if x else '')
 
 
     saldo = 0
@@ -71,7 +76,10 @@ def exportar(request):
         else:
             saldo -= t.valor
 
-    df.loc[len(df)] = ['Saldo Total', saldo, '']
+    # Adiciona uma linha vazia para separar os itens do saldo
+    df.loc[len(df)] = ['', '', '', '']
+    
+    df.loc[len(df)] = ['', 'Saldo Total', saldo, '']
 
     hoje = datetime.now().strftime('%Y-%m-%d')
     nome =f"TRANSACOES_{hoje}.xlsx"
