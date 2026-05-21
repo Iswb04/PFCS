@@ -1,0 +1,18 @@
+📈 Personal Finance Control System (PFCS) 
+
+Acabo de concluir uma atualização significativa no PFCS, um sistema de gestão financeira pessoal onde a robustez do Django no backend é o grande diferencial. O projeto demonstra como o ecossistema Django permite construir aplicações completas, seguras e eficientes em tempo recorde.
+
+✅ Destaques do Backend (Django):
+Arquitetura MVT (Model-View-Template): Organização impecável e separação clara de responsabilidades.
+Django ORM: Gerenciamento eficiente de dados e migrações complexas simplificadas (utilizando SQLite).
+Lógica de Negócio Centralizada: Processamento robusto de transações, cálculos de saldo e filtros de histórico diretamente no servidor.
+Segurança Integrada: Proteção nativa contra CSRF, SQL Injection e XSS.
+Extensibilidade: Sistema preparado para integração fácil de novas APIs e métodos de exportação de dados.
+
+✅ Tech Stack:
+- Core: Python & Django (A alma do projeto)
+- Database: SQLite (Persistência ágil)
+- Frontend: Tailwind CSS & Inter Font (Suporte visual moderno)
+- Ícones: Lucide Icons (Consistência visual)
+
+#Python #Django #Backend #SoftwareArchitecture #WebDevelopment #Coding #Developer #PythonProgramming #SoftwareEngineering #PersonalFinance #Portfolio
