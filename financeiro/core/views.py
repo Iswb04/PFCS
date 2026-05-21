@@ -28,7 +28,7 @@ def home(request):
 
 def adicionar(request):
     if request.method == 'POST':
-        titulo = request.POST['titulo'] + " " + "[" + datetime.now().strftime('%d-%m')+"]"
+        titulo = request.POST['titulo']
         valor = float(request.POST['valor'])
         tipo = request.POST['tipo']
 

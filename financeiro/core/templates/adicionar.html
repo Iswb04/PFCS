@@ -40,6 +40,16 @@
         .glass-card { background: #161C2B; border: 1px solid rgba(255, 255, 255, 0.05); }
         .animate-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Remove setas do input de número */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
     </style>
 </head>
 <body class="dark flex flex-col md:items-center md:justify-center min-h-screen">
@@ -98,8 +108,8 @@
                                 class="w-full appearance-none bg-dark-bg border-2 border-dark-border rounded-2xl py-4 px-5 pr-12 focus:outline-none focus:border-brand-blue text-lg font-bold transition-all"
                                 style="background-color: #0B0F1A;"
                             >
-                                <option value="D">💸 Saída / Despesa</option>
-                                <option value="R">💰 Entrada / Receita</option>
+                                <option value="D">Despesa</option>
+                                <option value="R">Receita</option>
                             </select>
                             <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
                                 <i data-lucide="chevron-down" class="w-5 h-5"></i>

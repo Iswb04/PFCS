@@ -1,0 +1,24 @@
+A data aparece na frente do título porque na função `adicionar` no arquivo `financeiro/core/views.py`, o código está programado para adicionar automaticamente a data do dia ao nome da transação antes de salvá-la no banco de dados.
+
+Trecho do código responsável:
+```python
+titulo = request.POST['titulo'] + " " + "[" + datetime.now().strftime('%d-%m')+"]"
+```
+
+---
+
+Para remover as setinhas (spinners) do campo de valor (input type="number"), você deve adicionar o seguinte CSS no arquivo `financeiro/core/templates/adicionar.html` dentro da tag `<style>`:
+
+```css
+/* Remove setas no Chrome, Safari, Edge e Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove setas no Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+```
