@@ -46,7 +46,6 @@ HTML || CSS || JavaScript
     width="235"
 />
 ```text
-
 PFCS/
 ├── core/
 │   ├── migrations/
