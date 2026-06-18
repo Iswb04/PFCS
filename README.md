@@ -1,6 +1,5 @@
 <p align="center">
-  <img width="450" height="250" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
-  <img width="450" height="250" alt="transacao" src="https://github.com/user-attachments/assets/2ed90715-a4c1-477f-942f-e3239f29336c" />
+
 </p>
 
 <br></br>
@@ -19,7 +18,8 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 ## Funcionalidades
 
 <img
-    src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d"
+    src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c"
+    src="https://github.com/user-attachments/assets/2ed90715-a4c1-477f-942f-e3239f29336c"
     align="right"
     width="235"
 />
