@@ -13,7 +13,7 @@
 ![SQL](https://img.shields.io/badge/SQL-Database-blue?style=for-the-badge)
   
 ## Sobre o Projeto:
-* O PFCS (Personal Finance Control System) é uma aplicação web que permite registrar movimentações financeiras, acompanhar o saldo disponível em tempo real e consultar o histórico completo de transações.
+O PFCS (Personal Finance Control System) é uma aplicação web que permite registrar movimentações financeiras, acompanhar o saldo disponível em tempo real e consultar o histórico completo de transações.
 O objetivo do projeto é centralizar informações financeiras em uma única plataforma, facilitando o controle e a análise dos dados.
 
 ## Objetivo:
