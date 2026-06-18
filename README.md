@@ -36,7 +36,7 @@ Python || Django || Pandas || SQL
 HTML || CSS || JavaScript
 
 ## Estrutura:
-
+```text
 PFCS/
 ├── core/
 │   ├── migrations/
@@ -55,7 +55,7 @@ PFCS/
 ├── run.py
 ├── README.md
 └── requirements.txt
-
+```
 
 ## Instalação e Execução
 Clone o repositório:
