@@ -20,7 +20,7 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 <img
     src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c"
     align="right"
-    width="500"
+    width="450"
 />
 
 - Cadastro de receitas e despesas
