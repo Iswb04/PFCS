@@ -39,4 +39,4 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 - Integração entre frontend e backend
 - Boas práticas de desenvolvimento em Python
 
-<img width="900" height="375" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
+<img width="800" height="400" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
