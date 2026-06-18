@@ -1,4 +1,4 @@
-<img width="800" height="350" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
+<img width="850" height="375" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
 
 **`PFCS - Personal Finance Control System`**
 
