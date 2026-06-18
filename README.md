@@ -52,7 +52,6 @@ PFCS/
 ├── db.sqlite3
 ├── manage.py
 ├── run.py
-├── README.md
 └── requirements.txt
 ```
 
