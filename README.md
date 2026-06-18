@@ -35,13 +35,6 @@ Python || Django || Pandas || SQL
 * Frontend:
 HTML || CSS || JavaScript
 
-## Este projeto foi desenvolvido para aprofundar conhecimentos em:
-- Desenvolvimento web com Django
-- Manipulação e análise de dados com Pandas
-- Modelagem e integração com bancos de dados SQL
-- Integração entre frontend e backend
-- Boas práticas de desenvolvimento em Python
-
 ## Estrutura:
 
 PFCS/
