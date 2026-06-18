@@ -20,7 +20,7 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 <img
     src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c"
     align="right"
-    width="300"
+    width="400"
 />
 
 - Cadastro de receitas e despesas
@@ -42,7 +42,7 @@ HTML || CSS || JavaScript
 <img
     src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d"
     align="right"
-    width="400"
+    width="235"
 />
 ```text
 PFCS/
