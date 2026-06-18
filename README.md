@@ -34,7 +34,6 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 - Análise de dados com Pandas
 - Persistência em banco SQL
 
-<br clear="right"/>
 
 ## Tecnologias Utilizadas:
 * Backend:
