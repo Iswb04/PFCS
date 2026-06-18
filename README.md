@@ -7,6 +7,11 @@
 
 **`PFCS - Personal Finance Control System`**
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-Database-blue?style=for-the-badge)
+
 * Sistema web de gerenciamento financeiro desenvolvido com Python, Django, SQL e Pandas, criado para auxiliar no controle de receitas, despesas e acompanhamento financeiro de forma organizada e intuitiva.
 
 > Sobre o Projeto:
