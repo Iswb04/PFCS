@@ -21,7 +21,7 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 ## Funcionalidades
 
 <img
-    src="assets/personagem.png"
+    src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d" width="260"
     align="right"
     width="240"
 />
