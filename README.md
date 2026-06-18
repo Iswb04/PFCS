@@ -57,7 +57,7 @@ PFCS/
 └── requirements.txt
 ```
 
-## Instalação e Execução
+## Instalação e Execução:
 Clone o repositório:
 ```bash
 git clone https://github.com/seu-usuario/PFCS.git
