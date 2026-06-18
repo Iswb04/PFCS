@@ -17,19 +17,16 @@
 O objetivo do projeto é centralizar informações financeiras em uma única plataforma, facilitando o controle e a análise dos dados.
 
 ## Objetivo:
-
 Desenvolver uma aplicação web para controle financeiro pessoal, aplicando conceitos de desenvolvimento web com Django, persistência de dados em SQL e análise de dados utilizando Pandas.
 
-## Funcionalidades:
+## Funcionalidades
 - Cadastro de receitas e despesas
-- Cálculo automático de saldo disponível
-- Visualização de ganhos e gastos totais
-- Pesquisa e filtragem de transações
-- Exclusão e gerenciamento de registros
-- Histórico completo de movimentações financeiras
-- Exportação de dados para Excel
-- Tratamento e análise de dados com Pandas
-- Persistência de dados em banco SQL
+- Controle de saldo em tempo real
+- Pesquisa e gerenciamento de transações
+- Histórico financeiro completo
+- Exportação para Excel
+- Análise de dados com Pandas
+- Persistência em banco SQL
 
 ## Tecnologias Utilizadas:
 * Backend:
