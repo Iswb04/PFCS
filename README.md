@@ -21,23 +21,17 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 ## Funcionalidades
 
 <img
-    src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d" width="260"
+    src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d"
     align="right"
     width="240"
 />
 
 - Cadastro de receitas e despesas
-
 - Controle de saldo em tempo real
-
 - Pesquisa e gerenciamento de transações
-
 - Histórico financeiro completo
-
 - Exportação para Excel
-
 - Análise de dados com Pandas
-
 - Persistência em banco SQL
 
 <br clear="right"/>
