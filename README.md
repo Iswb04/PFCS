@@ -40,7 +40,8 @@ Python || Django || Pandas || SQL
 HTML || CSS || JavaScript
 
 ## Estrutura:
-```text                  <img
+```text
+<img
     src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d"
     align="right"
     width="235"
