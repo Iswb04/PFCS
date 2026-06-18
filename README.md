@@ -43,6 +43,7 @@ HTML || CSS || JavaScript
 - Boas práticas de desenvolvimento em Python
 
 ## Estrutura:
+
 PFCS/
 ├── core/
 │   ├── migrations/
