@@ -40,14 +40,7 @@ PFCS/
 ├── core/
 │   ├── migrations/
 │   ├── static/
-│   │   ├── css/
-│   │   ├── imagens/
-│   │   └── js/
 │   ├── templates/
-│   ├── admin.py
-│   ├── models.py
-│   ├── urls.py
-│   └── views.py
 ├── financeiro/
 ├── db.sqlite3
 ├── manage.py
