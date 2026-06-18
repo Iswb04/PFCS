@@ -1,3 +1,7 @@
+<img width="400" height="200" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
+<img width="400" height="200" alt="transacao" src="https://github.com/user-attachments/assets/2ed90715-a4c1-477f-942f-e3239f29336c" />
+<br>
+
 **`PFCS - Personal Finance Control System`**
 
 * Sistema web de gerenciamento financeiro desenvolvido com Python, Django, SQL e Pandas, criado para auxiliar no controle de receitas, despesas e acompanhamento financeiro de forma organizada e intuitiva.
@@ -34,4 +38,4 @@ HTML || CSS || JavaScript
 - Integração entre frontend e backend
 - Boas práticas de desenvolvimento em Python
 
-<img width="800" height="400" alt="site" src="https://github.com/user-attachments/assets/f1d36fa8-7489-4033-a769-acc879fa571c" />
+
