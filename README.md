@@ -16,7 +16,10 @@
 O PFCS (Personal Finance Control System) é uma aplicação web que permite registrar movimentações financeiras, acompanhar o saldo disponível em tempo real e consultar o histórico completo de transações.
 O objetivo do projeto é centralizar informações financeiras em uma única plataforma, facilitando o controle e a análise dos dados, aplicando conceitos de desenvolvimento web com Django, persistência de dados em SQL e análise de dados utilizando Pandas.
 
-## Funcionalidades
+## Funcionalidades                                          
+<p align="right">
+<img width="1654" height="1654" alt="Design sem nome (4)" src="https://github.com/user-attachments/assets/f58f197a-3463-4cf5-883f-1e63eba6282d" />
+</p>
 - Cadastro de receitas e despesas
 - Controle de saldo em tempo real
 - Pesquisa e gerenciamento de transações
