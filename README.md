@@ -22,14 +22,9 @@ O objetivo do projeto é centralizar informações financeiras em uma única pla
 > Tecnologias Utilizadas:
 
 * Backend:
-- Python
-- Django
-- Pandas
-- SQL
+Python || Django || Pandas || SQL
 * Frontend:
-- HTML
-- CSS
-- JavaScript
+HTML || CSS || JavaScript
 
 > Este projeto foi desenvolvido para aprofundar conhecimentos em:
 
