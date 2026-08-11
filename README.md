@@ -1,10 +1,4 @@
-**`PFCS - Personal Finance Control System`**    <a href="https://www.linkedin.com/in/isabella-ramos-y04">
-  <img 
-          alt="LinkedIn Seguidores"
-          title="Conecte-se comigo no LinkedIn"
-          src="https://custom-icon-badges.demolab.com/badge/LinkedIn-%2B500-%230A66C2?logo=linkedin&logoColor=white&style=for-the-badge&labelColor=0A66C2"
-      />
-</a>
+**`PFCS - Personal Finance Control System`**    
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
@@ -74,3 +68,10 @@ Execute a aplicação:
 ```bash
 python run.py
 ```
+<a href="https://www.linkedin.com/in/isabella-ramos-y04">
+  <img 
+          alt="LinkedIn Seguidores"
+          title="Conecte-se comigo no LinkedIn"
+          src="https://custom-icon-badges.demolab.com/badge/LinkedIn-%2B500-%230A66C2?logo=linkedin&logoColor=white&style=for-the-badge&labelColor=0A66C2"
+      />
+</a>
